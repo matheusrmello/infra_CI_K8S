@@ -31,6 +31,7 @@ resource "kubernetes_service" "LoadBalancer" {
     selector = {
       nome = "go"
     }
+    session_affinity = "ClientIP"
     port {
       port = 8000
       target_port = 8000
