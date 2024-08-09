@@ -16,10 +16,9 @@ spec:
       labels:
         nome: go
     spec:
-    
       containers: 
        - name: go
-         image: leonardosartorello/go_ci:23 
+         image: matheusmello09/go_ci:88 
          ports:
           - containerPort: 8000
          env:
@@ -55,7 +54,7 @@ spec:
                 key: PORT
          livenessProbe:
            httpGet:
-             path: /bruno
+             path: /matheus
              port: 8000
            initialDelaySeconds: 60
            periodSeconds: 5
