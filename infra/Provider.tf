@@ -25,23 +25,16 @@ provider "kubernetes" {
 
 resource "kubernetes_service" "LoadBalancer" {
   metadata {
-    name      = "load-balancer-go-api"
-    namespace = "default"
+    name = "load-balancer-go-api"
   }
-
   spec {
     selector = {
-      app = "go"
+      nome = "go"
     }
-    session_affinity = "ClientIP"
     port {
-      port        = 8000
+      port = 8000
       target_port = 8000
     }
     type = "LoadBalancer"
-  }
-
-  timeouts {
-    create = "10m"
   }
 }
