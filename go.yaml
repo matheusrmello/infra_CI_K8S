@@ -19,6 +19,13 @@ spec:
       containers: 
        - name: go
          image: matheusmello09/go_ci:88 
+         resources:
+              requests:
+                memory: "64Mi"
+                cpu: "250m"
+              limits:
+                memory: "128Mi"
+                cpu: "500m"
          ports:
           - containerPort: 8000
          env:
@@ -51,7 +58,7 @@ spec:
              valueFrom:
               secretKeyRef:
                 name: port
-                key: PORT
+                key: PORT 
          livenessProbe:
            httpGet:
              path: /matheus
