@@ -27,16 +27,13 @@ resource "kubernetes_service" "LoadBalancer" {
   metadata {
     name      = "load-balancer-go-api"
     namespace = "default"
-    annotations = {
-      "service.beta.kubernetes.io/aws-load-balancer-internal" = "true"  # Example annotation for AWS
-    }
   }
 
   spec {
     selector = {
       app = "go"
     }
-    session_affinity = "ClientIP"  # Omit if not needed
+    session_affinity = "ClientIP"
     port {
       port        = 8000
       target_port = 8000
