@@ -46,6 +46,5 @@ resource "kubernetes_service" "LoadBalancer" {
 
   timeouts {
     create = "10m"
-    update = "10m"
   }
 }
